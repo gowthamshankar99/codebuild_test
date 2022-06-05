@@ -8,6 +8,7 @@ phases:
   pre_build:
     commands:
       - echo "$LOCAL_SECRET_VAR"
+      - echo "$HELLO"
   build:
     commands:
       - echo Build started on `date`
