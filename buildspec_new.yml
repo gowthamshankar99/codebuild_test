@@ -2,13 +2,16 @@ version: 0.2
 
 env:
   secrets-manager:
-    LOCAL_SECRET_VAR: "dockerhub:dockerhub_user"
+    DOCKER_USERNAME: "dockerhub:dockerhub_user"
+    DOCKER_PASSWORD: "dockerhub:dockerhub_password"
+    
 
 phases:
   pre_build:
     commands:
-      - echo "$LOCAL_SECRET_VAR"
+      - echo "$DOCKER_USERNAME"
       - echo "$HELLO"
+      - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   build:
     commands:
       - echo Build started on `date`
